@@ -26,7 +26,6 @@ function App() {
   const highlightEdge = (edgeId, color) => {
     if (networkRef.current) {
       const edge = networkRef.current.body.edges[edgeId];
-      console.log(edge)
       if (edge) {
         networkRef.current.body.data.edges.update({ id: edgeId, color: { color } });
       }
@@ -45,8 +44,6 @@ function App() {
       if (!v.includes(line[1])) v.push(line[1]);
       edgesin.push(line);
     }
-    console.log("edgest", edgesin);
-    console.log("v", v);
     const nodes = [];
     const edges = [];
     for (let i = 0; i < v.length; i++) {
@@ -67,7 +64,6 @@ function App() {
       });
     }
     setData({nodes:nodes, edges:edges});
-    console.log("data", data);
   };
 
   const bellmanFord = async (V, edges, src) => {
@@ -128,7 +124,6 @@ function App() {
         {joinVertices(d, i)}
       </span>
     ));
-    console.log("dis", display)
     setDistDisplay(display);
   };
 

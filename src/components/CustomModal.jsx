@@ -4,14 +4,12 @@ export default function CustomModal({ data, updateGraph, hideModal }) {
     const [nodeLabel, setNodeLabel] = useState('');
     const [edgeLabel, setEdgeLabel] = useState('1');
     const handleModal = () => {
-        console.log(data)
         if (!data) return;
         if (data.mode == 'addNode') {
             data.nodeData.label = nodeLabel != '' ? nodeLabel : 'new node';
             data.callback(data.nodeData);
         } else if (data.mode == 'addEdge') {
             data.edgeData.id = data.edgeData.from + '-' + data.edgeData.to;
-            console.log("edge", data.edgeData);
             data.edgeData.label = edgeLabel;
             data.edgeData.arrows = 'to';
             data.callback(data.edgeData);
